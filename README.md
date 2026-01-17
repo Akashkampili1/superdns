@@ -16,6 +16,21 @@ A high-performance Go (Golang) command-line tool for DNS intelligence, designed 
 - **Performance**: Concurrent querying with worker pools.
 - **Output**: Human-readable table format or JSON for pipelines.
 
+## Sample Output
+
+```text
+▶ Domain: vulnerable.example.com
+  CNAME    shop.shopify.com                    (TTL: 300)
+  [!] VULNERABILITY: Potential Dangling CNAME detected pointing to shop.shopify.com
+  [*] Provider: Shopify
+----------------------------------------
+▶ Domain: api.example.com
+  A        104.18.12.22, 104.18.13.22          (TTL: 300)
+  AAAA     2606:4700:83b2:3047:a742:0:b40f:34d5 (TTL: 60)
+  CAA      0 issue "letsencrypt.org"           (TTL: 3600)
+----------------------------------------
+```
+
 ## Installation
 
 ```bash
