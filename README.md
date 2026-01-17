@@ -18,6 +18,10 @@ A high-performance Go (Golang) command-line tool for DNS intelligence, designed 
 
 ## Sample Output
 
+```bash
+superdns -l domains.txt
+```
+
 ```text
 ▶ Domain: vulnerable.example.com
   CNAME    shop.shopify.com                    (TTL: 300)
