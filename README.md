@@ -1,5 +1,9 @@
 # SuperDNS
 
+<p align="center">
+  <img src="superdns.png" alt="SuperDNS Logo" width="600">
+</p>
+
 A high-performance Go (Golang) command-line tool for DNS intelligence, designed for security reconnaissance and subdomain takeover detection.
 
 ## Features
@@ -15,36 +19,34 @@ A high-performance Go (Golang) command-line tool for DNS intelligence, designed 
 ## Installation
 
 ```bash
-git clone https://github.com/akashkampili1/superdns
-cd takeover
-go build -o superdns cmd/superdns/main.go
+go install github.com/akashkampili1/superdns/cmd/superdns@latest
 ```
 
 ## Usage
 
 ### Single Domain
 ```bash
-./superdns -d example.com
+superdns -d example.com
 ```
 
 ### List of Domains
 ```bash
-./superdns -l domains.txt
+superdns -l domains.txt
 ```
 
 ### Pipe Input
 ```bash
-cat domains.txt | ./superdns
+cat domains.txt | superdns
 ```
 
 ### JSON Output
 ```bash
-./superdns -d example.com --json
+superdns -d example.com --json
 ```
 
 ### Only Show Vulnerable
 ```bash
-./superdns -l huge_list.txt --only-dangling
+superdns -l huge_list.txt --only-dangling
 ```
 
 ## Options
@@ -67,11 +69,3 @@ The tool performs the following checks:
    - Checks if a CNAME exists but the target fails to resolve (NXDOMAIN/SERVFAIL), indicating a "Dangling CNAME".
    - Matches CNAME targets against known cloud provider suffixes.
    - Probes for Wildcard DNS by querying a random subdomain.
-
-## Project Structure
-
-- `cmd/superdns`: CLI entry point.
-- `pkg/dnsops`: DNS query logic using `miekg/dns`.
-- `pkg/analysis`: Security analysic logic.
-- `pkg/runner`: Concurrency/Worker pool implementation.
-- `pkg/output`: Formatting logic.
